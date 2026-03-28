@@ -31,9 +31,9 @@
   }
 
   setWaLink('waHome', makeShareText('Paz pra sua noite. 🙏 Versículo + louvor:'));
-  setWaLink('waDormir', makeShareText('Paz pra sua noite. 🙏 Deixa tocando:'));
+  setWaLink('waDormir', makeShareText('Deixa tocando e descanse em paz. 🙏'));
   setWaLink('waOracao', makeShareText('Oração da noite + louvor. 🙏'));
-  setWaLink('waPost', makeShareText('Uma palavra e um louvor. 🙏'));
+  setWaLink('waPost', makeShareText('Uma palavra e um louvor para o seu coração. 🙏'));
 
   function copy(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
