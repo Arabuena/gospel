@@ -42,6 +42,12 @@
   </header>
 
   <main class="container">
+    <div class="pill-row">
+      <a class="pill" href="#longos">Vídeos longos</a>
+      <a class="pill" href="#posts">Posts</a>
+      <a class="pill" href="#shorts">Shorts</a>
+    </div>
+
     <section class="card">
       <div class="badge">Dica</div>
       <h1 class="h1">Use o post como “ponte” dos Shorts para os longos</h1>
@@ -49,49 +55,84 @@
       <input id="postSearch" class="input" placeholder="Buscar post por tema (ex.: dormir, oração, salmo, paz)" />
     </section>
 
-    <section class="grid two">
+    <section class="grid two" id="longos">
       <a class="card link-card" href="/dormir/">
         <div class="kicker">Vídeos longos</div>
         <h2 class="h2">Deixe tocando enquanto dorme</h2>
         <p class="muted">Página com louvor longo e botões para compartilhar.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/kGyzUUKZxyQ/hqdefault.jpg" alt="Capa do vídeo longo para dormir" />
+          <div class="play">▶</div>
+          <div class="label">Ver vídeo</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/oracao/">
         <div class="kicker">Vídeos longos</div>
         <h2 class="h2">Oração da noite</h2>
         <p class="muted">Feche o dia em paz e compartilhe com alguém.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/I5eVgiyrbAg/hqdefault.jpg" alt="Capa do vídeo longo de oração da noite" />
+          <div class="play">▶</div>
+          <div class="label">Ver vídeo</div>
+        </div>
       </a>
     </section>
 
-    <section class="post-grid">
+    <section class="post-grid" id="posts">
       <a class="card link-card" href="/blog/deixe-tocando-enquanto-dorme/" data-post-card data-search="dormir sono paz acalmar coração louvor">
         <div class="kicker">Dormir</div>
         <h2 class="h2">Louvor que acalma o coração</h2>
         <p class="muted">Deixe tocando enquanto dorme.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/72czMAqCZiY/hqdefault.jpg" alt="Capa do vídeo: Louvor que acalma o coração" />
+          <div class="play">▶</div>
+          <div class="label">Abrir post</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/blog/oracao-da-noite/" data-post-card data-search="oração noite paz descanso louvor">
         <div class="kicker">Oração</div>
         <h2 class="h2">Oração da noite com louvor</h2>
         <p class="muted">Uma palavra e uma canção para encerrar o dia.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/I5eVgiyrbAg/hqdefault.jpg" alt="Capa do vídeo: Oração da noite com louvor" />
+          <div class="play">▶</div>
+          <div class="label">Abrir post</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/blog/salmo-91-para-dormir-em-paz/" data-post-card data-search="salmo 91 proteção dormir paz noite louvor">
         <div class="kicker">Salmos</div>
         <h2 class="h2">Salmo 91 para dormir em paz</h2>
         <p class="muted">Proteção e descanso na presença de Deus.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/IrDVgaohOSY/hqdefault.jpg" alt="Capa do vídeo: Salmo 91 para dormir em paz" />
+          <div class="play">▶</div>
+          <div class="label">Abrir post</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/blog/entregue-tudo-a-deus-agora/" data-post-card data-search="fé entregue deus agora paz ansiedade confiança louvor">
         <div class="kicker">Fé</div>
         <h2 class="h2">Entregue tudo a Deus agora</h2>
         <p class="muted">Paz para o coração e confiança.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/11OBviDXVSA/hqdefault.jpg" alt="Capa do vídeo: Entregue tudo a Deus agora" />
+          <div class="play">▶</div>
+          <div class="label">Abrir post</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/blog/louvor-para-ansiedade/" data-post-card data-search="ansiedade paz coração preocupação medo louvor">
         <div class="kicker">Paz</div>
         <h2 class="h2">Louvor para ansiedade</h2>
         <p class="muted">Respire, ore e deixe tocando.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/snb3tHts_Nk/hqdefault.jpg" alt="Capa do vídeo: Louvor para ansiedade" />
+          <div class="play">▶</div>
+          <div class="label">Abrir post</div>
+        </div>
       </a>
     </section>
 
@@ -105,11 +146,16 @@
       </div>
     </section>
 
-    <section class="post-grid">
+    <section class="post-grid" id="shorts">
       <div class="card" data-post-card data-search="shorts versículo do dia biblia">
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #1</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/Zf5QFckCEC8" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/Zf5QFckCEC8/hqdefault.jpg" alt="Capa do Short recente #1" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/dormir/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/Zf5QFckCEC8" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -120,6 +166,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #2</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/51kQFtttZDU" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/51kQFtttZDU/hqdefault.jpg" alt="Capa do Short recente #2" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/oracao/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/51kQFtttZDU" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -130,6 +181,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #3</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/0N_XeHu2PiI" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/0N_XeHu2PiI/hqdefault.jpg" alt="Capa do Short recente #3" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/dormir/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/0N_XeHu2PiI" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -140,6 +196,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #4</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/dBr6MDPixqE" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/dBr6MDPixqE/hqdefault.jpg" alt="Capa do Short recente #4" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/oracao/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/dBr6MDPixqE" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -150,6 +211,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #5</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/FvwOPRHL31g" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/FvwOPRHL31g/hqdefault.jpg" alt="Capa do Short recente #5" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/dormir/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/FvwOPRHL31g" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -160,6 +226,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #6</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/w7z6NYaj_f8" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/w7z6NYaj_f8/hqdefault.jpg" alt="Capa do Short recente #6" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/oracao/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/w7z6NYaj_f8" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -170,6 +241,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #7</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/2Y4q98L3x-4" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/2Y4q98L3x-4/hqdefault.jpg" alt="Capa do Short recente #7" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/dormir/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/2Y4q98L3x-4" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -180,6 +256,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #8</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/LBu3Hxu-YKg" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/LBu3Hxu-YKg/hqdefault.jpg" alt="Capa do Short recente #8" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/oracao/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/LBu3Hxu-YKg" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -190,6 +271,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #9</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/lM95uAi9Jtw" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/lM95uAi9Jtw/hqdefault.jpg" alt="Capa do Short recente #9" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/dormir/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/lM95uAi9Jtw" target="_blank" rel="noreferrer">Abrir Short</a>
@@ -200,6 +286,11 @@
         <div class="kicker">Short</div>
         <h2 class="h2">Short recente #10</h2>
         <p class="muted">Use o link do tema como comentário fixado.</p>
+        <a class="thumb r9x16" href="https://www.youtube.com/shorts/fl3sD9hO0Rc" target="_blank" rel="noreferrer">
+          <img loading="lazy" src="https://i.ytimg.com/vi/fl3sD9hO0Rc/hqdefault.jpg" alt="Capa do Short recente #10" />
+          <div class="play">▶</div>
+          <div class="label">Abrir Short</div>
+        </a>
         <div class="cta-row">
           <a class="btn primary" href="/oracao/">Ouça completo</a>
           <a class="btn" href="https://www.youtube.com/shorts/fl3sD9hO0Rc" target="_blank" rel="noreferrer">Abrir Short</a>

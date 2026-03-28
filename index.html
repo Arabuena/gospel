@@ -42,6 +42,12 @@
   </header>
 
   <main class="container">
+    <div class="pill-row">
+      <a class="pill" href="#longos">Vídeos longos</a>
+      <a class="pill" href="#posts">Posts</a>
+      <a class="pill" href="#shorts">Shorts</a>
+    </div>
+
     <section class="card">
       <div class="badge">Pronto para WhatsApp</div>
       <h1 class="h1">Links para compartilhar</h1>
@@ -54,23 +60,83 @@
       </div>
     </section>
 
-    <section class="grid">
+    <section class="card" id="longos">
+      <h2 class="h2">Destaques em vídeo (longos)</h2>
+      <p class="muted">Abra, deixe tocando e compartilhe.</p>
+
+      <section class="grid two">
+        <div class="card">
+          <div class="kicker">Dormir</div>
+          <h3 class="h3">Louvor para dormir</h3>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/kGyzUUKZxyQ"
+              title="Louvor para dormir"
+              frameborder="0"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" href="/dormir/">Abrir página</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=kGyzUUKZxyQ" target="_blank" rel="noreferrer">Assistir no YouTube</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Oração</div>
+          <h3 class="h3">Oração da noite</h3>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/I5eVgiyrbAg"
+              title="Oração da noite"
+              frameborder="0"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" href="/oracao/">Abrir página</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=I5eVgiyrbAg" target="_blank" rel="noreferrer">Assistir no YouTube</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="grid" id="posts">
       <a class="card link-card" href="/blog/">
         <div class="kicker">Blog</div>
         <h2 class="h2">Posts para compartilhar</h2>
         <p class="muted">Cada post tem versículo, vídeo e texto pronto.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/72czMAqCZiY/hqdefault.jpg" alt="Capa de um vídeo do blog" />
+          <div class="play">▶</div>
+          <div class="label">Abrir blog</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/dormir/">
         <div class="kicker">Tema</div>
         <h2 class="h2">Deixe tocando enquanto dorme</h2>
         <p class="muted">Louvores longos para paz e descanso.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/kGyzUUKZxyQ/hqdefault.jpg" alt="Capa do vídeo longo para dormir" />
+          <div class="play">▶</div>
+          <div class="label">Ver</div>
+        </div>
       </a>
 
       <a class="card link-card" href="/oracao/">
         <div class="kicker">Tema</div>
         <h2 class="h2">Oração da noite</h2>
         <p class="muted">Uma palavra e um louvor para encerrar o dia.</p>
+        <div class="thumb r16x9">
+          <img loading="lazy" src="https://i.ytimg.com/vi/I5eVgiyrbAg/hqdefault.jpg" alt="Capa do vídeo longo de oração da noite" />
+          <div class="play">▶</div>
+          <div class="label">Ver</div>
+        </div>
       </a>
     </section>
 
@@ -90,26 +156,108 @@
           <div class="kicker">Dormir</div>
           <h3 class="h3">Louvor que acalma o coração</h3>
           <p class="muted">Deixe tocando e descanse em paz.</p>
+          <div class="thumb r16x9">
+            <img loading="lazy" src="https://i.ytimg.com/vi/72czMAqCZiY/hqdefault.jpg" alt="Capa do vídeo: Louvor que acalma o coração" />
+            <div class="play">▶</div>
+            <div class="label">Abrir post</div>
+          </div>
         </a>
 
         <a class="card link-card" href="/blog/oracao-da-noite/">
           <div class="kicker">Oração</div>
           <h3 class="h3">Oração da noite com louvor</h3>
           <p class="muted">Uma palavra e uma canção para encerrar o dia.</p>
+          <div class="thumb r16x9">
+            <img loading="lazy" src="https://i.ytimg.com/vi/I5eVgiyrbAg/hqdefault.jpg" alt="Capa do vídeo: Oração da noite com louvor" />
+            <div class="play">▶</div>
+            <div class="label">Abrir post</div>
+          </div>
         </a>
 
         <a class="card link-card" href="/blog/salmo-91-para-dormir-em-paz/">
           <div class="kicker">Salmos</div>
           <h3 class="h3">Salmo 91 para dormir em paz</h3>
           <p class="muted">Proteção e descanso na presença de Deus.</p>
+          <div class="thumb r16x9">
+            <img loading="lazy" src="https://i.ytimg.com/vi/IrDVgaohOSY/hqdefault.jpg" alt="Capa do vídeo: Salmo 91 para dormir em paz" />
+            <div class="play">▶</div>
+            <div class="label">Abrir post</div>
+          </div>
         </a>
 
         <a class="card link-card" href="/blog/entregue-tudo-a-deus-agora/">
           <div class="kicker">Fé</div>
           <h3 class="h3">Entregue tudo a Deus agora</h3>
           <p class="muted">Paz para o coração e confiança.</p>
+          <div class="thumb r16x9">
+            <img loading="lazy" src="https://i.ytimg.com/vi/11OBviDXVSA/hqdefault.jpg" alt="Capa do vídeo: Entregue tudo a Deus agora" />
+            <div class="play">▶</div>
+            <div class="label">Abrir post</div>
+          </div>
         </a>
       </div>
+    </section>
+
+    <section class="card" id="shorts">
+      <h2 class="h2">Shorts recentes</h2>
+      <p class="muted">Fixe no comentário do Short o link para Dormir/Oração/Blog e puxe público para os longos.</p>
+      <section class="post-grid">
+        <div class="card">
+          <div class="kicker">Short</div>
+          <h3 class="h3">Versículo do dia</h3>
+          <a class="thumb r9x16" href="https://www.youtube.com/shorts/Zf5QFckCEC8" target="_blank" rel="noreferrer">
+            <img loading="lazy" src="https://i.ytimg.com/vi/Zf5QFckCEC8/hqdefault.jpg" alt="Capa do Short: Versículo do dia" />
+            <div class="play">▶</div>
+            <div class="label">Abrir Short</div>
+          </a>
+          <div class="cta-row">
+            <a class="btn primary" href="/dormir/">Ouça completo</a>
+            <a class="btn" href="https://www.youtube.com/shorts/Zf5QFckCEC8" target="_blank" rel="noreferrer">Abrir Short</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Short</div>
+          <h3 class="h3">Versículo do dia</h3>
+          <a class="thumb r9x16" href="https://www.youtube.com/shorts/51kQFtttZDU" target="_blank" rel="noreferrer">
+            <img loading="lazy" src="https://i.ytimg.com/vi/51kQFtttZDU/hqdefault.jpg" alt="Capa do Short: Versículo do dia" />
+            <div class="play">▶</div>
+            <div class="label">Abrir Short</div>
+          </a>
+          <div class="cta-row">
+            <a class="btn primary" href="/oracao/">Ouça completo</a>
+            <a class="btn" href="https://www.youtube.com/shorts/51kQFtttZDU" target="_blank" rel="noreferrer">Abrir Short</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Short</div>
+          <h3 class="h3">Versículo do dia</h3>
+          <a class="thumb r9x16" href="https://www.youtube.com/shorts/dBr6MDPixqE" target="_blank" rel="noreferrer">
+            <img loading="lazy" src="https://i.ytimg.com/vi/dBr6MDPixqE/hqdefault.jpg" alt="Capa do Short: Versículo do dia" />
+            <div class="play">▶</div>
+            <div class="label">Abrir Short</div>
+          </a>
+          <div class="cta-row">
+            <a class="btn primary" href="/dormir/">Ouça completo</a>
+            <a class="btn" href="https://www.youtube.com/shorts/dBr6MDPixqE" target="_blank" rel="noreferrer">Abrir Short</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Short</div>
+          <h3 class="h3">Versículo do dia</h3>
+          <a class="thumb r9x16" href="https://www.youtube.com/shorts/fl3sD9hO0Rc" target="_blank" rel="noreferrer">
+            <img loading="lazy" src="https://i.ytimg.com/vi/fl3sD9hO0Rc/hqdefault.jpg" alt="Capa do Short: Versículo do dia" />
+            <div class="play">▶</div>
+            <div class="label">Abrir Short</div>
+          </a>
+          <div class="cta-row">
+            <a class="btn primary" href="/oracao/">Ouça completo</a>
+            <a class="btn" href="https://www.youtube.com/shorts/fl3sD9hO0Rc" target="_blank" rel="noreferrer">Abrir Short</a>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
