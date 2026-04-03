@@ -2,16 +2,14 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  function getBaseUrl() {
+  function getFullUrl() {
+    var origin = window.location.origin;
+    if (origin && origin !== 'null') {
+      return origin + window.location.pathname.replace(/index\.html$/i, '');
+    }
     var meta = document.querySelector('meta[name="site:base"]');
     var content = meta && meta.getAttribute('content');
-    if (content && /^https?:\/\//i.test(content)) return content.replace(/\/+$/, '');
-    return '';
-  }
-
-  function getFullUrl() {
-    var base = getBaseUrl();
-    if (base) return base + window.location.pathname.replace(/index\.html$/i, '');
+    if (content && /^https?:\/\//i.test(content)) return content.replace(/\/+$/, '') + window.location.pathname.replace(/index\.html$/i, '');
     return window.location.href;
   }
 
@@ -119,6 +117,194 @@
   }
 
   applyVideoOverrides();
+
+  function parseCsv(text) {
+    var rows = [];
+    var row = [];
+    var field = '';
+    var inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          field += c;
+        }
+        continue;
+      }
+      if (c === '"') {
+        inQuotes = true;
+        continue;
+      }
+      if (c === ',') {
+        row.push(field);
+        field = '';
+        continue;
+      }
+      if (c === '\r') continue;
+      if (c === '\n') {
+        row.push(field);
+        field = '';
+        if (row.length > 1 || row[0]) rows.push(row);
+        row = [];
+        continue;
+      }
+      field += c;
+    }
+    row.push(field);
+    if (row.length > 1 || row[0]) rows.push(row);
+    return rows;
+  }
+
+  function toInt(v) {
+    var n = parseInt(String(v || '').replace(/[^\d-]/g, ''), 10);
+    return isFinite(n) ? n : 0;
+  }
+
+  function cleanTitle(title) {
+    var t = String(title || '').trim();
+    if (!t) return '';
+    t = t.replace(/#[^\s]+/g, '').replace(/\s+/g, ' ').trim();
+    return t;
+  }
+
+  function chooseCtaHref(index) {
+    return index % 2 === 0 ? '/dormir/' : '/oracao/';
+  }
+
+  function buildShortCard(item, index) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.setAttribute('data-post-card', '');
+    card.setAttribute('data-search', 'shorts versículo do dia biblia');
+
+    var kicker = document.createElement('div');
+    kicker.className = 'kicker';
+    kicker.textContent = 'Short';
+
+    var h = document.createElement('h2');
+    h.className = 'h2';
+    h.textContent = cleanTitle(item.title) || 'Versículo do dia';
+
+    var aThumb = document.createElement('a');
+    aThumb.className = 'thumb r9x16';
+    aThumb.href = 'https://www.youtube.com/shorts/' + item.id;
+    aThumb.target = '_blank';
+    aThumb.rel = 'noreferrer';
+
+    var img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = 'https://i.ytimg.com/vi/' + item.id + '/hqdefault.jpg';
+    img.alt = 'Capa do Short';
+
+    var play = document.createElement('div');
+    play.className = 'play';
+    play.textContent = '▶';
+
+    var label = document.createElement('div');
+    label.className = 'label';
+    label.textContent = 'Abrir Short';
+
+    aThumb.appendChild(img);
+    aThumb.appendChild(play);
+    aThumb.appendChild(label);
+
+    var cta = document.createElement('div');
+    cta.className = 'cta-row';
+
+    var aLong = document.createElement('a');
+    aLong.className = 'btn primary';
+    aLong.href = chooseCtaHref(index);
+    aLong.textContent = 'Ouça completo';
+
+    var aShort = document.createElement('a');
+    aShort.className = 'btn';
+    aShort.href = aThumb.href;
+    aShort.target = '_blank';
+    aShort.rel = 'noreferrer';
+    aShort.textContent = 'Abrir Short';
+
+    cta.appendChild(aLong);
+    cta.appendChild(aShort);
+
+    card.appendChild(kicker);
+    card.appendChild(h);
+    card.appendChild(aThumb);
+    card.appendChild(cta);
+
+    return card;
+  }
+
+  function loadCsvFeed() {
+    var containers = document.querySelectorAll('[data-feed][data-csv]');
+    if (!containers.length) return;
+
+    function tryFetchCsv(urls, idx) {
+      if (idx >= urls.length) return Promise.reject(new Error('No CSV source available'));
+      var url = urls[idx];
+      return fetch(encodeURI(url)).then(function (r) {
+        if (r.ok) return r.text();
+        return tryFetchCsv(urls, idx + 1);
+      }).catch(function () {
+        return tryFetchCsv(urls, idx + 1);
+      });
+    }
+
+    for (var i = 0; i < containers.length; i++) {
+      (function (container) {
+        var csvUrl = container.getAttribute('data-csv') || '';
+        if (!csvUrl) return;
+        var csvUrls = csvUrl.split(';').map(function (s) { return String(s || '').trim(); }).filter(Boolean);
+        if (!csvUrls.length) return;
+        var limit = toInt(container.getAttribute('data-limit') || '10') || 10;
+        var feed = (container.getAttribute('data-feed') || '').toLowerCase().trim();
+
+        tryFetchCsv(csvUrls, 0)
+          .then(function (text) {
+            var rows = parseCsv(text);
+            if (!rows.length) return;
+            var header = rows[0];
+            var idxId = header.indexOf('Conteúdo');
+            var idxTitle = header.indexOf('Título do vídeo');
+            var idxDate = header.indexOf('Horário de publicação do vídeo');
+            var idxDur = header.indexOf('Duração');
+            var idxViews = header.indexOf('Visualizações');
+
+            var items = [];
+            for (var r = 1; r < rows.length; r++) {
+              var row = rows[r];
+              var id = (row[idxId] || '').trim();
+              if (!id || id.toLowerCase() === 'total') continue;
+              if (id.length !== 11) continue;
+              var title = (row[idxTitle] || '').trim();
+              var dateStr = (row[idxDate] || '').replace(/^"|"$/g, '').trim();
+              var dur = toInt(row[idxDur]);
+              var views = toInt(row[idxViews]);
+              var published = Date.parse(dateStr);
+              items.push({ id: id, title: title, dateStr: dateStr, published: isNaN(published) ? 0 : published, duration: dur, views: views });
+            }
+
+            if (feed === 'shorts') {
+              items = items.filter(function (x) { return x.duration > 0 && x.duration <= 60; });
+              items.sort(function (a, b) { return (b.published || 0) - (a.published || 0) || b.views - a.views; });
+              items = items.slice(0, limit);
+              container.innerHTML = '';
+              for (var k = 0; k < items.length; k++) container.appendChild(buildShortCard(items[k], k));
+              return;
+            }
+          })
+          .catch(function () {});
+      })(containers[i]);
+    }
+  }
+
+  loadCsvFeed();
 
   document.addEventListener('click', function (e) {
     var target = e.target;
